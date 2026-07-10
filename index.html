@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elume Availability Checker Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grid-background"></div>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-logo">
+                <span class="logo-dot"></span>
+                <h1>Elume <span class="accent-text">Checker</span></h1>
+            </div>
+            <div class="candidate-badge">
+                <span class="badge-label">Developer Application</span>
+                <span class="badge-name">Maruthi Sriram (Marsy)</span>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="dashboard-grid">
+            
+            <!-- Left Column: Scheduler & Monitors -->
+            <section class="dashboard-section monitors-section">
+                <div class="section-header">
+                    <h2>Active Scheduler Queue</h2>
+                    <span class="status-indicator online">System Running</span>
+                </div>
+                
+                <!-- Add Monitor Input -->
+                <div class="add-monitor-box">
+                    <input type="url" id="monitor-url-input" placeholder="https://example.com/api/availability" required>
+                    <button id="add-monitor-btn">Add Monitor</button>
+                </div>
+
+                <!-- Monitors List -->
+                <div class="monitors-list" id="monitors-container">
+                    <!-- Dynamic monitor items will be injected here -->
+                    <div class="monitor-card skeleton"></div>
+                    <div class="monitor-card skeleton"></div>
+                </div>
+            </section>
+
+            <!-- Middle Column: Live Simulator Controls & Live Output Console -->
+            <section class="dashboard-section console-section">
+                <div class="section-header">
+                    <h2>Live Execution Console</h2>
+                    <div class="console-actions">
+                        <button id="clear-console-btn" class="text-btn">Clear Logs</button>
+                    </div>
+                </div>
+
+                <!-- Sim Controls -->
+                <div class="simulator-controls">
+                    <button id="sim-success-btn" class="control-btn success">Simulate Success (200)</button>
+                    <button id="sim-slow-btn" class="control-btn warning">Simulate Timeout</button>
+                    <button id="sim-blocked-btn" class="control-btn danger">Simulate Rate Limit (429)</button>
+                </div>
+
+                <!-- Console Output -->
+                <div class="console-log-wrapper">
+                    <div class="console-log" id="console-output">
+                        <div class="log-entry system">[SYSTEM] Dashboard initialized. Ready to schedule tasks.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Strategic Answers & Cryptographic Sandbox -->
+            <section class="dashboard-section details-section">
+                
+                <!-- Security Sandbox -->
+                <div class="sandbox-container">
+                    <div class="section-header">
+                        <h2>Cryptographic Storage Sandbox</h2>
+                        <span class="shield-icon">🛡️</span>
+                    </div>
+                    <p class="sandbox-desc">Enter mock customer PII to visualize secure column-level envelope encryption.</p>
+                    <div class="sandbox-form">
+                        <input type="text" id="pii-input" placeholder="Enter customer email (e.g. user@elume.io)">
+                        <button id="encrypt-btn">Encrypt & Store</button>
+                    </div>
+                    <div class="encryption-flow" id="encryption-visualizer">
+                        <!-- Encryption flow stages will be animated here -->
+                        <div class="flow-placeholder">Enter PII above to visualize the encryption flow.</div>
+                    </div>
+                </div>
+
+                <!-- Answers Tab Container -->
+                <div class="answers-container">
+                    <div class="section-header">
+                        <h2>Technical Strategy Responses</h2>
+                    </div>
+                    <div class="answers-content" id="answers-panel">
+                        <!-- Questions will go here in Step 3 -->
+                        <p class="loading-text">Loading technical strategy responses...</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
