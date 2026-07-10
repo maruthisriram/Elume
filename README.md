@@ -1,6 +1,6 @@
 # Elume Availability Checker Dashboard
 
-This repository contains my submission for the Round 2 Developer Role application at Elume. 
+This repository contains my submission for the Round 2 Developer Role application at Elume. Built using vanilla HTML, CSS, and JavaScript. 
 
 It is designed to run entirely client-side as a static web application hosted on GitHub Pages, providing an interactive dashboard that simulates a highly reliable scraper scheduler and column-level secure storage system.
 
