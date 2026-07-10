@@ -37,6 +37,17 @@ let monitors = [
         lastChecked: "Never",
         retries: 0,
         backoffMultiplier: 1
+    },
+    {
+        id: 3,
+        url: "https://www.amazon.com/s?k=electronics&s=date-desc-rank",
+        status: "active",
+        interval: 25,
+        countdown: 25,
+        latency: 310,
+        lastChecked: "Never",
+        retries: 0,
+        backoffMultiplier: 1
     }
 ];
 
@@ -203,6 +214,26 @@ function executeCheck(monitor) {
             monitor.latency = Math.floor(Math.random() * 150) + 80;
             logConsole("scraper", `[SCRAPER] Target ${monitor.url} status: 200 OK (Latency: ${monitor.latency}ms)`);
             
+            // Check if this is the Amazon Electronics Monitor
+            if (monitor.url.includes("amazon.com")) {
+                const count = Math.floor(Math.random() * 4); // 0 to 3 new products
+                logConsole("scraper", `[SCRAPER] Parsing Amazon electronics page. Found 24 matches.`);
+                if (count > 0) {
+                    const productsList = [
+                        "Noise-Canceling Wireless Headphones Pro",
+                        "Smartwatch Series 9 (Carbon Black Edition)",
+                        "Ultra-Thin 4K OLED Portable Monitor",
+                        "Mechanical Keyboard RGB (Tactile Switches)",
+                        "15W Magnetic wireless Charger Dock"
+                    ];
+                    // Pick random items
+                    const shuffled = productsList.sort(() => 0.5 - Math.random());
+                    const selected = shuffled.slice(0, count);
+                    logConsole("scraper", `[ALERT] Amazon Cache Mismatch! Found ${count} new product(s) added: "${selected.join('", "')}"`);
+                } else {
+                    logConsole("scraper", `[SCRAPER] No new electronics products detected. Remote page matches local state cache.`);
+                }
+            }
         } else if (type === "timeout") {
             // TIMEOUT FLOW (Slow / Error)
             monitor.latency = 0;
