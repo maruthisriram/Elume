@@ -93,44 +93,7 @@
                     </div>
                 </div>
 
-                <!-- Answers Tab Container -->
-                <div class="answers-container">
-                    <div class="section-header">
-                        <h2>Technical Strategy Responses</h2>
-                    </div>
-                    <div class="answers-content" id="answers-panel">
-                        <!-- Question 1 -->
-                        <div class="qa-card" style="margin-bottom: 1rem;">
-                            <h3>1. Scheduling &amp; Web Automation Project</h3>
-                            <p>
-                                <strong>Project:</strong> <a href="https://github.com/maruthisriram/Stock-Market-Predictor" target="_blank">Stock-Market-Predictor</a> &amp; <a href="https://github.com/maruthisriram/algorithmic-trading-python" target="_blank">algorithmic-trading-python</a><br>
-                                <strong>Role &amp; Build:</strong> Designed and implemented a Python data ingestion pipeline that periodically pulls and pre-processes real-time financial market ticker data from multiple public REST/WebSocket APIs, storing structured datasets for LSTM model forecasting and trading strategy backtests.
-                            </p>
-                        </div>
 
-                        <!-- Question-2 -->
-                        <div class="qa-card" style="margin-bottom: 1rem;">
-                            <h3>2. Reliable Checker Design</h3>
-                            <p>
-                                <strong>Rate Limiting &amp; Retries:</strong> I would design an execution loop utilizing exponential backoff with randomized jitter to spread request distributions. I'd wrap HTTP client requests in a circuit breaker pattern (using libraries like Tenacity or Cockatiel) to prevent repeatedly querying offline resources.
-                            </p>
-                            <p style="margin-top: 0.5rem;">
-                                <strong>Bypassing Blocks:</strong> Use residential rotating proxy pools to mask the checker's IP address. Rotate User-Agents along with full header signatures (e.g. <code>Sec-Ch-Ua</code>, <code>Accept-Language</code>) corresponding to legitimate web browsers. If standard HTTP client queries are blocked by CDN bot shields (like Cloudflare), I'd swap to headless automation utilizing Playwright with a stealth extension.
-                            </p>
-                            <p style="margin-top: 0.5rem;">
-                                <strong>State Resilience:</strong> Decouple targets using a message queue worker pool (like Celery/BullMQ with Redis) to ensure failing tasks can be retried independently without affecting the broader system.
-                            </p>
-                        </div>
-
-                        <!-- Question 3 -->
-                        <div class="qa-card">
-                            <h3>3. Secure Personal Data Storage</h3>
-                            <p>
-                                Customer PII is secured using <strong>Envelope Encryption</strong>: data fields are encrypted at rest with distinct Data Encryption Keys (DEKs) using AES-256-GCM before storage, and DEKs themselves are encrypted with a Key Encryption Key (KEK) managed in HSM-backed systems (AWS KMS/HashiCorp Vault). We enforce TLS 1.3 for data in transit and implement strict Role-Based Access Control (RBAC) with column-level database permissions to ensure only authorized service principals can decrypt sensitive fields.
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </section>
 
         </main>
